@@ -1,0 +1,118 @@
+@import "../var";
+@import "../mixin";
+.containers {
+   
+  .card {
+    .telbtn {
+        border-radius: 20px;
+        transition: all 0.2s ease-in-out;
+        &:hover{
+          background-color: #2ba9ff;
+        }
+        text-transform: capitalize !important;
+      .iconContainer {
+        color:$white;
+        .icon {
+          font-size: 100px;
+        }
+        p{
+            font-size: 20px;
+        }
+      }
+    }
+    .whatbtn {
+        border-radius: 20px;
+        // background-color: #43e460;
+        transition: all 0.2s ease-in-out;
+        &:hover{
+          background-color: #43e460;
+        }
+        text-transform: capitalize !important;
+      .iconContainer {
+        color:$white;
+        .icon {
+          font-size: 100px;
+        }
+        p{
+            font-size: 20px;
+        }
+      }
+    }
+    .youbtn {
+        border-radius: 20px;
+        // background-color: #f70000;
+        transition: all 0.2s ease-in-out;
+        &:hover{
+          background-color: #f70000;
+        }
+        text-transform: capitalize !important;
+      .iconContainer {
+        color:$white;
+        .icon {
+          font-size: 100px;
+        }
+        p{
+            font-size: 20px;
+        }
+      }
+    }
+    .instabtn {
+        border-radius: 20px;
+        // background-color: #f105d0;
+        transition: all 0.2s ease-in-out;
+        &:hover{
+          background-color: #f105d0;
+        }
+        text-transform: capitalize !important;
+      .iconContainer {
+        color:$white;
+        .icon {
+          font-size: 100px;
+        }
+        p{
+            font-size: 20px;
+        }
+      }
+    }
+  }
+  a {
+    z-index: 1;
+    text-decoration: none;
+    transition: $duration;
+    border-radius: $radius;
+    background-color: $bg-main;
+    box-shadow: 0px 0px 2px 1px rgb(19, 0, 0);
+    button {
+      background-color: transparent;
+      font-weight: $font-heading;
+      color: $navbar;
+      letter-spacing: 0.1rem;
+      &:hover {
+        color: $white;
+      }
+    }
+
+    &:hover {
+      @include hoverOut();
+      &:nth-child(1) {
+        background-color: $red;
+      }
+      &:nth-child(2) {
+        background-color: $blue;
+      }
+      &:nth-child(3) {
+        background-color: $pink;
+      }
+      box-shadow: 0px 0px 4px 2px white;
+    }
+  }
+}
+@media screen and (min-width: 1400px) {
+  .containers {
+    a {
+      button {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

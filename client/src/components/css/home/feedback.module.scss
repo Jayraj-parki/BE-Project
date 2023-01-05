@@ -1,0 +1,11 @@
+@import "../var";
+@import "../mixin";
+.card{
+    overflow: hidden;
+    transform: scale(0.9);
+    position: relative;
+    border-radius: $radius;
+    border: none;
+    
+    
+}
