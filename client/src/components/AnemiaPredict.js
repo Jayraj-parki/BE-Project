@@ -87,11 +87,9 @@ export default function AnemiaPredict() {
                 .post('http://localhost:8080/prediction', params)
                 .then((res) => {
                     const data = res.data.data
-                    // const parameters = JSON.stringify(cbc)
-                    // const msg = `Prediction: ${data.prediction}\nInterpretation: ${data.interpretation}\nParameters: ${parameters}`
-                    // alert(msg)
-                    // reset()
+                    
                     // const custom=data?.result+customPrediction
+                    // console.log(data)
                     if (data?.result <= 50) {
                         setStatus(false);
                     }

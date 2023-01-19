@@ -26,10 +26,10 @@ app.add_middleware(
 )
 
 # Loading up the trained model
-model = pickle.load(open('../model/rf.pkl', 'rb'))
-model2 = pickle.load(open('../model/knn.pkl', 'rb'))
+rf = pickle.load(open('../model/rf.pkl', 'rb'))
+knn = pickle.load(open('../model/knn.pkl', 'rb'))
+nb = pickle.load(open('../model/nb.pkl', 'rb'))
 # model3 = pickle.load(open('../model/decision.pkl', 'rb'))
-model4 = pickle.load(open('../model/nb.pkl', 'rb'))
 
 # Defining the model input types
 class Candidate(BaseModel):
@@ -55,17 +55,23 @@ async def get_predict(data: Candidate):
         data.MCV
     ]]
     
-    result = model.predict(sample).tolist()[0]
-    result2 = model2.predict(sample).tolist()[0]
-    # result3 = model3.predict(sample).tolist()[0]
-    result4 = model4.predict(sample).tolist()[0]
-    probability=((result+result2+result4)/3)*100;
-   
-    print("result",result, "->",result2,"->",result4)
+    rfPred = rf.predict(sample).tolist()[0]
+    knnPred = knn.predict(sample).tolist()[0]
+    nbPred = nb.predict(sample).tolist()[0]
+    
+    rfAndKnn=(rfPred+knnPred)/2;
+    rfAndNb=(rfPred+nbPred)/2;
+    knnAndNb=(knnPred+nbPred)/2;
+    rf_knn_nb=(rfAndKnn+knnAndNb+rfAndNb)/3
+
+    FinalPred=((rfAndNb+rfAndKnn+knnAndNb+rf_knn_nb)/4)*100;
+
+    # probability=((result+result2+result4)/3)*100;
+    # print("result",result, "->",result2,"->",result4)
     
     return {
         "data": {
-            'result': probability,
+            'result': FinalPred,
          }
     }
 
