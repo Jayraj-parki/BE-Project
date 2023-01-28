@@ -29,6 +29,7 @@ app.add_middleware(
 rf = pickle.load(open('../model/rf.pkl', 'rb'))
 knn = pickle.load(open('../model/knn.pkl', 'rb'))
 nb = pickle.load(open('../model/nb.pkl', 'rb'))
+
 # model3 = pickle.load(open('../model/decision.pkl', 'rb'))
 
 # Defining the model input types
